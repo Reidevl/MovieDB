@@ -8,15 +8,34 @@
 import SwiftUI
 
 struct MainPosterView: View {
+    @State var movie: MovieResult
+    
     var body: some View {
-        Rectangle()
-            .frame(width: 250, height: 380)
-            .cornerRadius(16)
-            .padding(.horizontal, 10)
-            .padding(.vertical, 5)
+        
+        AsyncImage(url: URL(string: "https://image.tmdb.org/t/p/w500\(movie.posterPath)")) { image in
+            image
+                .resizable()
+        } placeholder: {
+            ZStack {
+                Rectangle()
+                    .fill(Color.gray.opacity(0.3))
+                
+                ProgressView()
+            }
+        }
+        .frame(width: 250, height: 380)
+        .scaledToFit()
+        .cornerRadius(16)
+        .clipped()
+        .padding(.horizontal, 10)
+        .padding(.vertical, 5)
     }
 }
 
 #Preview {
-    MainPosterView()
+    let exampleMovie = MovieExampleData.exampleMovies[0]
+    
+    return Group{
+        MainPosterView(movie: exampleMovie)
+    }
 }

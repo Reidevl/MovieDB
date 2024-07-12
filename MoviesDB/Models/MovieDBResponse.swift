@@ -7,8 +7,8 @@
 
 import Foundation
 
-// MARK: - NowPlaying
-struct NowPlaying: Codable {
+// MARK: - MovieDBResponse
+struct MovieDBResponse: Codable {
     let page: Int
     let results: [MovieResult]
     let totalResults: Int

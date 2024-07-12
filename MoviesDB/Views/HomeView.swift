@@ -8,46 +8,37 @@
 import SwiftUI
 
 struct HomeView: View {
-    @State private var apiViewModel: ApiViewModel = ApiViewModel()
-    @State private var nowPlaying: [MovieResult]?
-    
-    private var showIndicator = false
-    
+    @State private var homeViewModel: HomeViewModel = .init()
     
     var body: some View {
         ScrollView {
             ScrollView(.horizontal, showsIndicators: false) {
-                LazyHStack {
-                    MainPosterView()
-                    MainPosterView()
-                    MainPosterView()
-                    MainPosterView()
+                if homeViewModel.isLoading {
+                    ProgressView("Cargando...")
+                } else {
+                    LazyHStack {
+                        ForEach(homeViewModel.nowPlaying ?? []) { movie in
+                            MainPosterView(movie: movie)
+                                .onTapGesture {
+                                    withAnimation {
+                                        print(movie.title)                                        
+                                    }
+                                }
+                        }
+                    }
                 }
             }
             
-            CategoryScrollView(title: "Popular")
-            CategoryScrollView(title: "Top Rated")
-            CategoryScrollView(title: "Upcoming")
+            CategoryScrollView(movies: homeViewModel.popular, isLoading: homeViewModel.isLoading, title: "Popular")
+            
+            CategoryScrollView(movies: homeViewModel.topRated, isLoading: homeViewModel.isLoading, title: "Top Rated")
+            
+            CategoryScrollView(movies: homeViewModel.upcoming, isLoading: homeViewModel.isLoading, title: "Upcoming")
         }
         .task{
-            do {
-                nowPlaying = try await apiViewModel.getNowPlaying().results
-            } catch MDBError.invalidUrl {
-                nowPlaying = nil
-                print("Invalid Url")
-            } catch MDBError.invalidResponse {
-                nowPlaying = nil
-                print("Invalid Response")
-            } catch MDBError.invalidData {
-                nowPlaying = nil
-                print("Invalid Data")
-            } catch {
-                print("Unexpected error: \(error.localizedDescription)")
-            }
+            await homeViewModel.fetchData()
         }
     }
-    
-
 }
 
 #Preview {

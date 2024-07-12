@@ -8,19 +8,28 @@
 import SwiftUI
 
 struct CategoryScrollView: View {
+    var movies: [MovieResult]?
+    var isLoading: Bool
     var title: String
     
     var body: some View {
         VStack {
             Text(title)
+                .font(.title)
+                .bold()
+                .foregroundStyle(.black.opacity(0.8))
+                .frame(maxWidth: .infinity, alignment: .leading)
+                .padding(.leading)
             
             ScrollView(.horizontal, showsIndicators: false) {
-                LazyHStack {
-                    PosterView()
-                    PosterView()
-                    PosterView()
-                    PosterView()
-                    PosterView()
+                if isLoading {
+                    ProgressView("Cargando...")
+                } else {
+                    LazyHStack {
+                        ForEach(movies ?? []) { movie in
+                            PosterView(movie: movie)
+                        }
+                    }
                 }
             }
             
@@ -29,5 +38,9 @@ struct CategoryScrollView: View {
 }
 
 #Preview {
-    CategoryScrollView(title: "Popular")
+    let exampleMovies = MovieExampleData.exampleMovies
+    
+    return Group {
+        CategoryScrollView(movies: exampleMovies, isLoading: false, title: "Popular")
+    }
 }
