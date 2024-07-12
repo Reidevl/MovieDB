@@ -12,7 +12,8 @@ struct MainPosterView: View {
         Rectangle()
             .frame(width: 250, height: 380)
             .cornerRadius(16)
-            .padding(3)
+            .padding(.horizontal, 10)
+            .padding(.vertical, 5)
     }
 }
 
