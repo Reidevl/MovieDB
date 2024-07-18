@@ -8,35 +8,86 @@
 import SwiftUI
 
 struct HomeView: View {
-    @State private var homeViewModel: HomeViewModel = .init()
+    @State private var hvm: HomeViewModel = .init()
     
     var body: some View {
-        ScrollView {
-            ScrollView(.horizontal, showsIndicators: false) {
-                if homeViewModel.isLoading {
-                    ProgressView("Cargando...")
-                } else {
-                    LazyHStack {
-                        ForEach(homeViewModel.nowPlaying ?? []) { movie in
-                            MainPosterView(movie: movie)
-                                .onTapGesture {
-                                    withAnimation {
-                                        print(movie.title)                                        
+        ZStack {
+            LinearGradient(gradient: Gradient(colors: [hvm.primaryColor, hvm.secondaryColor]), startPoint: .top, endPoint: .bottom)
+                .ignoresSafeArea()
+                .animation(.easeOut(duration: 0.4), value: hvm.primaryColor)
+                .animation(.easeOut(duration: 0.4), value: hvm.secondaryColor)
+            
+            ScrollViewReader { scrollViewProxy in
+                ScrollView {
+                    ScrollView(.horizontal, showsIndicators: false) {
+                        if hvm.isLoading {
+                            ProgressView("Cargando...")
+                        } else {
+                            LazyHStack(spacing: 0) {
+                                Color.clear
+                                    .frame(width: (UIScreen.main.bounds.width - 260) / 2, height: 400)
+                                ForEach(hvm.nowPlaying ?? []) { movie in
+                                    GeometryReader { geometry in
+                                        MainPosterView(movie: movie)
+                                            .frame(width: 260, height: 400)
+                                            .id(movie.id)
+                                            .background(
+                                                GeometryReader { innerGeometry in
+                                                    Color.clear
+                                                        .onAppear {
+                                                            if hvm.isCentered(geometry: innerGeometry) {
+                                                                Task {
+                                                                    await hvm.updateBackgroundColors(for: movie)
+                                                                }
+                                                                if hvm.centeredMovieId != movie.id {
+                                                                    hvm.centeredMovieId = movie.id
+                                                                    withAnimation {
+                                                                        scrollViewProxy.scrollTo(movie.id, anchor: .center)
+                                                                    }
+                                                                }
+                                                            }
+                                                        }
+                                                        .onChange(of: innerGeometry.frame(in: .global)) {
+                                                            if hvm.isCentered(geometry: innerGeometry) {
+                                                                if hvm.centeredMovieId != movie.id {
+                                                                    hvm.centeredMovieId = movie.id
+                                                                    Task {
+                                                                        await hvm.updateBackgroundColors(for: movie)
+                                                                    }
+                                                                    withAnimation {
+                                                                        scrollViewProxy.scrollTo(movie.id, anchor: .center)
+                                                                    }
+                                                                }
+                                                            }
+                                                        }
+                                                }
+                                            )
                                     }
+                                    .frame(width: 260, height: 400)
                                 }
+                                Color.clear
+                                    .frame(width: (UIScreen.main.bounds.width - 260) / 2, height: 400)
+                                
+                            }
                         }
                     }
+                    
+                    CategoryScrollView(movies: hvm.popular, isLoading: hvm.isLoading, title: "Popular")
+                    
+                    CategoryScrollView(movies: hvm.topRated, isLoading: hvm.isLoading, title: "Top Rated")
+                    
+                    CategoryScrollView(movies: hvm.upcoming, isLoading: hvm.isLoading, title: "Upcoming")
+                }
+                .task {
+                    await hvm.fetchData()
                 }
             }
-            
-            CategoryScrollView(movies: homeViewModel.popular, isLoading: homeViewModel.isLoading, title: "Popular")
-            
-            CategoryScrollView(movies: homeViewModel.topRated, isLoading: homeViewModel.isLoading, title: "Top Rated")
-            
-            CategoryScrollView(movies: homeViewModel.upcoming, isLoading: homeViewModel.isLoading, title: "Upcoming")
         }
-        .task{
-            await homeViewModel.fetchData()
+        .onChange(of: hvm.newPrimaryColor) {
+            withAnimation(.easeIn(duration: 0.4)) {
+                hvm.primaryColor = hvm.newPrimaryColor
+                hvm.secondaryColor = hvm.newSecondaryColor
+            }
         }
     }
 }

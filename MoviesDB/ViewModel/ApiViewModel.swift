@@ -41,7 +41,6 @@ class ApiViewModel {
     
 //    MARK: - Methods
     func getNowPlaying() async throws -> MovieDBResponse {
-        
         guard let url = constructURL(endpoint: "now_playing") else {
             throw MDBError.invalidUrl
         }
@@ -57,7 +56,6 @@ class ApiViewModel {
         
         let popular = try await perfomRequest(url: url, responseType: MovieDBResponse.self)
         return popular
-        
     }
     
     func getTopRated() async throws -> MovieDBResponse  {

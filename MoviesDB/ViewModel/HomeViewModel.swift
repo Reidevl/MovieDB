@@ -6,6 +6,8 @@
 //
 
 import Foundation
+import SwiftUI
+import UIImageColors
 
 @Observable
 class HomeViewModel {
@@ -14,6 +16,13 @@ class HomeViewModel {
     var topRated: [MovieResult]?
     var upcoming: [MovieResult]?
     var isLoading = true
+    
+    // color variables
+    var primaryColor: Color = .black
+    var secondaryColor: Color = .gray
+    var newPrimaryColor: Color = .black
+    var newSecondaryColor: Color = .gray
+    var centeredMovieId: Int? = nil
     
     private var apiViewModel = ApiViewModel()
     
@@ -45,5 +54,22 @@ class HomeViewModel {
         popular = nil
         topRated = nil
         upcoming = nil
+    }
+    
+    func isCentered(geometry: GeometryProxy) -> Bool {
+        let frame = geometry.frame(in: .global)
+        return abs(frame.midX - UIScreen.main.bounds.midX) < frame.width / 2
+    }
+    
+    func updateBackgroundColors(for movie: MovieResult) async {
+        guard let url = URL(string: "https://image.tmdb.org/t/p/w500\(movie.posterPath)") else { return }
+        let data = try? Data(contentsOf: url)
+        if let imageData = data, let uiImage = UIImage(data: imageData) {
+            let colors = uiImage.getColors()
+            DispatchQueue.main.async {
+                self.newPrimaryColor = Color(colors.primary)
+                self.newSecondaryColor = Color(colors.secondary)
+            }
+        }
     }
 }

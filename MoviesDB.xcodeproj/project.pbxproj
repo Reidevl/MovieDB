@@ -22,6 +22,8 @@
 		EEEC236F2C40D56800E259F7 /* MovieCredits.swift in Sources */ = {isa = PBXBuildFile; fileRef = EEEC236E2C40D56800E259F7 /* MovieCredits.swift */; };
 		EEEC23722C40DCAD00E259F7 /* MovieExampleData.swift in Sources */ = {isa = PBXBuildFile; fileRef = EEEC23712C40DCAD00E259F7 /* MovieExampleData.swift */; };
 		EEEC23742C40E0F600E259F7 /* HomeViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = EEEC23732C40E0F600E259F7 /* HomeViewModel.swift */; };
+		EEEC23772C40EA4700E259F7 /* ColorExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = EEEC23762C40EA4700E259F7 /* ColorExtension.swift */; };
+		EEEC237A2C47DADD00E259F7 /* UIImageColors in Frameworks */ = {isa = PBXBuildFile; productRef = EEEC23792C47DADD00E259F7 /* UIImageColors */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -41,6 +43,7 @@
 		EEEC236E2C40D56800E259F7 /* MovieCredits.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MovieCredits.swift; sourceTree = "<group>"; };
 		EEEC23712C40DCAD00E259F7 /* MovieExampleData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MovieExampleData.swift; sourceTree = "<group>"; };
 		EEEC23732C40E0F600E259F7 /* HomeViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewModel.swift; sourceTree = "<group>"; };
+		EEEC23762C40EA4700E259F7 /* ColorExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ColorExtension.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -48,6 +51,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				EEEC237A2C47DADD00E259F7 /* UIImageColors in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -74,6 +78,7 @@
 			isa = PBXGroup;
 			children = (
 				EE3C9AEF2C40B71200D22063 /* Components */,
+				EEEC23752C40EA3300E259F7 /* Extension */,
 				EE3C9AEE2C40B70800D22063 /* Models */,
 				EEEC23702C40DC9700E259F7 /* PreviewData */,
 				EE3C9AF02C40B71900D22063 /* Views */,
@@ -140,6 +145,14 @@
 			path = PreviewData;
 			sourceTree = "<group>";
 		};
+		EEEC23752C40EA3300E259F7 /* Extension */ = {
+			isa = PBXGroup;
+			children = (
+				EEEC23762C40EA4700E259F7 /* ColorExtension.swift */,
+			);
+			path = Extension;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -156,6 +169,9 @@
 			dependencies = (
 			);
 			name = MoviesDB;
+			packageProductDependencies = (
+				EEEC23792C47DADD00E259F7 /* UIImageColors */,
+			);
 			productName = MoviesDB;
 			productReference = EE3C9ADD2C40B6D900D22063 /* MoviesDB.app */;
 			productType = "com.apple.product-type.application";
@@ -184,6 +200,9 @@
 				Base,
 			);
 			mainGroup = EE3C9AD42C40B6D900D22063;
+			packageReferences = (
+				EEEC23782C47DADD00E259F7 /* XCRemoteSwiftPackageReference "UIImageColors" */,
+			);
 			productRefGroup = EE3C9ADE2C40B6D900D22063 /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -215,6 +234,7 @@
 				EEEC23742C40E0F600E259F7 /* HomeViewModel.swift in Sources */,
 				EE3C9AF72C40B9F400D22063 /* CategoryScrollView.swift in Sources */,
 				EE3C9AFB2C40BBAC00D22063 /* MainPosterView.swift in Sources */,
+				EEEC23772C40EA4700E259F7 /* ColorExtension.swift in Sources */,
 				EEEC236F2C40D56800E259F7 /* MovieCredits.swift in Sources */,
 				EE3C9AE32C40B6D900D22063 /* ContentView.swift in Sources */,
 				EE3C9AFF2C40C0AB00D22063 /* MovieDBResponse.swift in Sources */,
@@ -428,6 +448,25 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		EEEC23782C47DADD00E259F7 /* XCRemoteSwiftPackageReference "UIImageColors" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/jathu/UIImageColors.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 2.2.0;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		EEEC23792C47DADD00E259F7 /* UIImageColors */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = EEEC23782C47DADD00E259F7 /* XCRemoteSwiftPackageReference "UIImageColors" */;
+			productName = UIImageColors;
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = EE3C9AD52C40B6D900D22063 /* Project object */;
 }
