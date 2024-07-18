@@ -89,7 +89,7 @@ class ApiViewModel {
         guard let url = constructURL(endpoint: "\(movieId)/credits") else {
             throw MDBError.invalidUrl
         }
-        
+                
         let detail = try await perfomRequest(url: url, responseType: Credits.self)
         return detail
     }
