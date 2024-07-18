@@ -27,7 +27,9 @@ struct CategoryScrollView: View {
                 } else {
                     LazyHStack {
                         ForEach(movies ?? []) { movie in
-                            PosterView(movie: movie)
+                            NavigationLink(destination: DetailView(movieId: movie.id)) {
+                                PosterView(movie: movie)
+                            }
                         }
                     }
                 }

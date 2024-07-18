@@ -14,7 +14,7 @@ struct Credits: Codable {
 }
 
 // MARK: - Cast
-struct Cast: Codable {
+struct Cast: Codable, Identifiable {
     let adult: Bool
     let gender, id: Int
     let knownForDepartment, name, originalName: String

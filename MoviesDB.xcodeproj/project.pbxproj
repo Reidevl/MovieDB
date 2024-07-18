@@ -81,7 +81,7 @@
 				EEEC23752C40EA3300E259F7 /* Extension */,
 				EE3C9AEE2C40B70800D22063 /* Models */,
 				EEEC23702C40DC9700E259F7 /* PreviewData */,
-				EE3C9AF02C40B71900D22063 /* Views */,
+				EE3C9AF02C40B71900D22063 /* Screen */,
 				EE3C9AF52C40B91300D22063 /* ViewModel */,
 				EE3C9AE02C40B6D900D22063 /* MoviesDBApp.swift */,
 				EE3C9AE22C40B6D900D22063 /* ContentView.swift */,
@@ -119,13 +119,13 @@
 			path = Components;
 			sourceTree = "<group>";
 		};
-		EE3C9AF02C40B71900D22063 /* Views */ = {
+		EE3C9AF02C40B71900D22063 /* Screen */ = {
 			isa = PBXGroup;
 			children = (
 				EE3C9AF12C40B7BF00D22063 /* HomeView.swift */,
 				EE3C9AF32C40B7CA00D22063 /* DetailView.swift */,
 			);
-			path = Views;
+			path = Screen;
 			sourceTree = "<group>";
 		};
 		EE3C9AF52C40B91300D22063 /* ViewModel */ = {
