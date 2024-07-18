@@ -31,37 +31,32 @@ struct HomeView: View {
                                         MainPosterView(movie: movie)
                                             .frame(width: 260, height: 400)
                                             .id(movie.id)
-                                            .background(
-                                                GeometryReader { innerGeometry in
-                                                    Color.clear
-                                                        .onAppear {
-                                                            if hvm.isCentered(geometry: innerGeometry) {
-                                                                Task {
-                                                                    await hvm.updateBackgroundColors(for: movie)
-                                                                }
-                                                                if hvm.centeredMovieId != movie.id {
-                                                                    hvm.centeredMovieId = movie.id
-                                                                    withAnimation {
-                                                                        scrollViewProxy.scrollTo(movie.id, anchor: .center)
-                                                                    }
-                                                                }
-                                                            }
+                                            .onAppear {
+                                                if hvm.isCentered(geometry: geometry) {
+                                                    Task {
+                                                        await hvm.updateBackgroundColors(for: movie)
+                                                    }
+                                                    if hvm.centeredMovieId != movie.id {
+                                                        hvm.centeredMovieId = movie.id
+                                                        withAnimation {
+                                                            scrollViewProxy.scrollTo(movie.id, anchor: .center)
                                                         }
-                                                        .onChange(of: innerGeometry.frame(in: .global)) {
-                                                            if hvm.isCentered(geometry: innerGeometry) {
-                                                                if hvm.centeredMovieId != movie.id {
-                                                                    hvm.centeredMovieId = movie.id
-                                                                    Task {
-                                                                        await hvm.updateBackgroundColors(for: movie)
-                                                                    }
-                                                                    withAnimation {
-                                                                        scrollViewProxy.scrollTo(movie.id, anchor: .center)
-                                                                    }
-                                                                }
-                                                            }
-                                                        }
+                                                    }
                                                 }
-                                            )
+                                            }
+                                            .onChange(of: geometry.frame(in: .global)) {
+                                                if hvm.isCentered(geometry: geometry) {
+                                                    if hvm.centeredMovieId != movie.id {
+                                                        hvm.centeredMovieId = movie.id
+                                                        Task {
+                                                            await hvm.updateBackgroundColors(for: movie)
+                                                        }
+                                                        withAnimation {
+                                                            scrollViewProxy.scrollTo(movie.id, anchor: .center)
+                                                        }
+                                                    }
+                                                }
+                                            }
                                     }
                                     .frame(width: 260, height: 400)
                                 }
