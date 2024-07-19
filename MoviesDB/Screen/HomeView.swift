@@ -28,17 +28,16 @@ struct HomeView: View {
                                 LazyHStack(spacing: 0) {
                                     Color.clear
                                         .frame(width: (UIScreen.main.bounds.width - 260) / 2, height: 400)
-                                    ForEach(hvm.nowPlaying ?? []) { movie in
+                                    ForEach(hvm.nowPlaying ?? [], id: \.id) { movie in
                                         GeometryReader { geometry in
                                             NavigationLink(destination: DetailView(movieId: movie.id)) {
                                                 MainPosterView(movie: movie)
                                                     .frame(width: 260, height: 400)
                                                     .id(movie.id)
-                                                    .onAppear {
+                                                    .task {
                                                         if hvm.isCentered(geometry: geometry) {
-                                                            Task {
-                                                                await hvm.updateBackgroundColors(for: movie)
-                                                            }
+                                                            await hvm.updateBackgroundColors(for: movie)
+                                                            
                                                             if hvm.centeredMovieId != movie.id {
                                                                 hvm.centeredMovieId = movie.id
                                                                 withAnimation {
@@ -88,7 +87,7 @@ struct HomeView: View {
                     hvm.primaryColor = hvm.newPrimaryColor
                     hvm.secondaryColor = hvm.newSecondaryColor
                 }
-        }
+            }
         }
     }
 }

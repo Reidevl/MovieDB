@@ -25,15 +25,27 @@ struct CategoryScrollView: View {
                 if isLoading {
                     ProgressView("Cargando...")
                 } else {
-                    LazyHStack {
-                        ForEach(movies ?? []) { movie in
-                            NavigationLink(destination: DetailView(movieId: movie.id)) {
-                                PosterView(movie: movie)
+                    VStack {
+                        LazyHStack {
+                            ForEach(movies ?? [], id: \.id) { movie in
+                                NavigationLink(destination: DetailView(movieId: movie.id)) {
+                                    PosterView(movie: movie)
+                                }
                             }
                         }
+                        
                     }
                 }
             }
+            VStack{
+                NavigationLink(destination: Text("Hola")) {
+                    Text("See more...")
+                        .font(.title3)
+                        .bold()
+                }
+            }
+            .frame(maxWidth: .infinity, alignment: .trailing)
+            .padding()
             
         }
     }

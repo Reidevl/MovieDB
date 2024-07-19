@@ -32,6 +32,7 @@ class HomeViewModel {
     
     func fetchData() async {
         isLoading = true
+        defer { isLoading = false }
         do {
             nowPlaying = try await apiViewModel.getNowPlaying().results
             popular = try await apiViewModel.getPopular().results
@@ -50,11 +51,11 @@ class HomeViewModel {
             setNilData()
             print("Unexpected error: \(error.localizedDescription)")
         }
-        isLoading = false
     }
     
     func getMovieById(movieId: Int) async {
         isLoading = true
+        defer { isLoading = false }
         do {
             movieDetail = try await apiViewModel.getMovieById(movieId: movieId)
             movieCredit = try await apiViewModel.getMovieCredit(movieId: movieId)
@@ -67,7 +68,6 @@ class HomeViewModel {
         } catch {
             print("Unexpected error: \(error.localizedDescription)")
         }
-        isLoading = false
     }
     
     private func setNilData () {
