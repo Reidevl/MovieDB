@@ -17,4 +17,12 @@ class LoginViewModel {
         
         return passwordRegex.evaluate(with: password)
     }
+    
+    func login() {
+        
+    }
+    
+    func createAccount() {
+        
+    }
 }
