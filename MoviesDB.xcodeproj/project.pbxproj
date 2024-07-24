@@ -23,6 +23,14 @@
 		EE8EA2ED2C49F1F100C947FA /* DetailPoster.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE8EA2EC2C49F1F100C947FA /* DetailPoster.swift */; };
 		EE8EA2EF2C49F28600C947FA /* MovieDetailExampleData.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE8EA2EE2C49F28600C947FA /* MovieDetailExampleData.swift */; };
 		EE8EA2F12C49F3D100C947FA /* DetailInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE8EA2F02C49F3D100C947FA /* DetailInfo.swift */; };
+		EE8EA2F32C507ED200C947FA /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = EE8EA2F22C507ED100C947FA /* GoogleService-Info.plist */; };
+		EE8EA2F52C507F0C00C947FA /* LoginView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE8EA2F42C507F0C00C947FA /* LoginView.swift */; };
+		EE8EA2F72C5091E400C947FA /* LoginViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE8EA2F62C5091E400C947FA /* LoginViewModel.swift */; };
+		EE8EA2FA2C5093D000C947FA /* StringExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE8EA2F92C5093D000C947FA /* StringExtension.swift */; };
+		EE8EA2FC2C5098D700C947FA /* SignUpView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE8EA2FB2C5098D700C947FA /* SignUpView.swift */; };
+		EE8EA2FF2C509CF800C947FA /* AuthView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE8EA2FE2C509CF800C947FA /* AuthView.swift */; };
+		EE8EA3022C50A25500C947FA /* EmailField.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE8EA3012C50A25500C947FA /* EmailField.swift */; };
+		EE8EA3042C50A2E700C947FA /* PasswordField.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE8EA3032C50A2E700C947FA /* PasswordField.swift */; };
 		EEEC236D2C40D3BF00E259F7 /* MovieDetail.swift in Sources */ = {isa = PBXBuildFile; fileRef = EEEC236C2C40D3BF00E259F7 /* MovieDetail.swift */; };
 		EEEC236F2C40D56800E259F7 /* MovieCredits.swift in Sources */ = {isa = PBXBuildFile; fileRef = EEEC236E2C40D56800E259F7 /* MovieCredits.swift */; };
 		EEEC23722C40DCAD00E259F7 /* MovieExampleData.swift in Sources */ = {isa = PBXBuildFile; fileRef = EEEC23712C40DCAD00E259F7 /* MovieExampleData.swift */; };
@@ -49,6 +57,14 @@
 		EE8EA2EC2C49F1F100C947FA /* DetailPoster.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailPoster.swift; sourceTree = "<group>"; };
 		EE8EA2EE2C49F28600C947FA /* MovieDetailExampleData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MovieDetailExampleData.swift; sourceTree = "<group>"; };
 		EE8EA2F02C49F3D100C947FA /* DetailInfo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailInfo.swift; sourceTree = "<group>"; };
+		EE8EA2F22C507ED100C947FA /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
+		EE8EA2F42C507F0C00C947FA /* LoginView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginView.swift; sourceTree = "<group>"; };
+		EE8EA2F62C5091E400C947FA /* LoginViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewModel.swift; sourceTree = "<group>"; };
+		EE8EA2F92C5093D000C947FA /* StringExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StringExtension.swift; sourceTree = "<group>"; };
+		EE8EA2FB2C5098D700C947FA /* SignUpView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpView.swift; sourceTree = "<group>"; };
+		EE8EA2FE2C509CF800C947FA /* AuthView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthView.swift; sourceTree = "<group>"; };
+		EE8EA3012C50A25500C947FA /* EmailField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmailField.swift; sourceTree = "<group>"; };
+		EE8EA3032C50A2E700C947FA /* PasswordField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PasswordField.swift; sourceTree = "<group>"; };
 		EEEC236C2C40D3BF00E259F7 /* MovieDetail.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MovieDetail.swift; sourceTree = "<group>"; };
 		EEEC236E2C40D56800E259F7 /* MovieCredits.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MovieCredits.swift; sourceTree = "<group>"; };
 		EEEC23712C40DCAD00E259F7 /* MovieExampleData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MovieExampleData.swift; sourceTree = "<group>"; };
@@ -96,6 +112,7 @@
 				EE3C9AE02C40B6D900D22063 /* MoviesDBApp.swift */,
 				EE3C9AE22C40B6D900D22063 /* ContentView.swift */,
 				EE3C9AE42C40B6DA00D22063 /* Assets.xcassets */,
+				EE8EA2F22C507ED100C947FA /* GoogleService-Info.plist */,
 				EE3C9AE62C40B6DA00D22063 /* Preview Content */,
 			);
 			path = MoviesDB;
@@ -122,6 +139,7 @@
 		EE3C9AEF2C40B71200D22063 /* Components */ = {
 			isa = PBXGroup;
 			children = (
+				EE8EA3002C50A24000C947FA /* Auth */,
 				EE8EA2E92C49F1A500C947FA /* Home */,
 				EE8EA2E82C49F19B00C947FA /* Detail */,
 			);
@@ -131,6 +149,7 @@
 		EE3C9AF02C40B71900D22063 /* Screen */ = {
 			isa = PBXGroup;
 			children = (
+				EE8EA2FD2C509C8900C947FA /* AuthScreens */,
 				EE3C9AF12C40B7BF00D22063 /* HomeView.swift */,
 				EE3C9AF32C40B7CA00D22063 /* DetailView.swift */,
 			);
@@ -142,6 +161,7 @@
 			children = (
 				EE3C9AFC2C40BD1600D22063 /* ApiViewModel.swift */,
 				EEEC23732C40E0F600E259F7 /* HomeViewModel.swift */,
+				EE8EA2F62C5091E400C947FA /* LoginViewModel.swift */,
 			);
 			path = ViewModel;
 			sourceTree = "<group>";
@@ -166,6 +186,25 @@
 			path = Home;
 			sourceTree = "<group>";
 		};
+		EE8EA2FD2C509C8900C947FA /* AuthScreens */ = {
+			isa = PBXGroup;
+			children = (
+				EE8EA2F42C507F0C00C947FA /* LoginView.swift */,
+				EE8EA2FB2C5098D700C947FA /* SignUpView.swift */,
+				EE8EA2FE2C509CF800C947FA /* AuthView.swift */,
+			);
+			path = AuthScreens;
+			sourceTree = "<group>";
+		};
+		EE8EA3002C50A24000C947FA /* Auth */ = {
+			isa = PBXGroup;
+			children = (
+				EE8EA3012C50A25500C947FA /* EmailField.swift */,
+				EE8EA3032C50A2E700C947FA /* PasswordField.swift */,
+			);
+			path = Auth;
+			sourceTree = "<group>";
+		};
 		EEEC23702C40DC9700E259F7 /* PreviewData */ = {
 			isa = PBXGroup;
 			children = (
@@ -180,6 +219,7 @@
 			isa = PBXGroup;
 			children = (
 				EEEC23762C40EA4700E259F7 /* ColorExtension.swift */,
+				EE8EA2F92C5093D000C947FA /* StringExtension.swift */,
 			);
 			path = Extension;
 			sourceTree = "<group>";
@@ -249,6 +289,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				EE3C9AE82C40B6DA00D22063 /* Preview Assets.xcassets in Resources */,
+				EE8EA2F32C507ED200C947FA /* GoogleService-Info.plist in Resources */,
 				EE3C9AE52C40B6DA00D22063 /* Assets.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -265,6 +306,7 @@
 				EE8EA2E72C49EEED00C947FA /* CastExampleData.swift in Sources */,
 				EE8EA2ED2C49F1F100C947FA /* DetailPoster.swift in Sources */,
 				EE3C9AF42C40B7CA00D22063 /* DetailView.swift in Sources */,
+				EE8EA2FC2C5098D700C947FA /* SignUpView.swift in Sources */,
 				EEEC23742C40E0F600E259F7 /* HomeViewModel.swift in Sources */,
 				EE3C9AF72C40B9F400D22063 /* CategoryScrollView.swift in Sources */,
 				EE8EA2E52C49EE1600C947FA /* ActorCard.swift in Sources */,
@@ -272,13 +314,19 @@
 				EE3C9AFB2C40BBAC00D22063 /* MainPosterView.swift in Sources */,
 				EEEC23772C40EA4700E259F7 /* ColorExtension.swift in Sources */,
 				EEEC236F2C40D56800E259F7 /* MovieCredits.swift in Sources */,
+				EE8EA2FA2C5093D000C947FA /* StringExtension.swift in Sources */,
+				EE8EA2FF2C509CF800C947FA /* AuthView.swift in Sources */,
 				EE3C9AE32C40B6D900D22063 /* ContentView.swift in Sources */,
 				EE3C9AFF2C40C0AB00D22063 /* MovieDBResponse.swift in Sources */,
 				EE3C9AE12C40B6D900D22063 /* MoviesDBApp.swift in Sources */,
 				EE3C9AF92C40BA8C00D22063 /* PosterView.swift in Sources */,
+				EE8EA3042C50A2E700C947FA /* PasswordField.swift in Sources */,
+				EE8EA3022C50A25500C947FA /* EmailField.swift in Sources */,
 				EE3C9AFD2C40BD1600D22063 /* ApiViewModel.swift in Sources */,
 				EEEC236D2C40D3BF00E259F7 /* MovieDetail.swift in Sources */,
+				EE8EA2F52C507F0C00C947FA /* LoginView.swift in Sources */,
 				EEEC23722C40DCAD00E259F7 /* MovieExampleData.swift in Sources */,
+				EE8EA2F72C5091E400C947FA /* LoginViewModel.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
