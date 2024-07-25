@@ -32,6 +32,8 @@
 		EE8EA3022C50A25500C947FA /* EmailField.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE8EA3012C50A25500C947FA /* EmailField.swift */; };
 		EE8EA3042C50A2E700C947FA /* PasswordField.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE8EA3032C50A2E700C947FA /* PasswordField.swift */; };
 		EE8EA3062C50A60A00C947FA /* AuthContentField.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE8EA3052C50A60A00C947FA /* AuthContentField.swift */; };
+		EE8EA3092C51DA0900C947FA /* FirebaseAuth in Frameworks */ = {isa = PBXBuildFile; productRef = EE8EA3082C51DA0900C947FA /* FirebaseAuth */; };
+		EE8EA30B2C51DA0900C947FA /* FirebaseFirestore in Frameworks */ = {isa = PBXBuildFile; productRef = EE8EA30A2C51DA0900C947FA /* FirebaseFirestore */; };
 		EEEC236D2C40D3BF00E259F7 /* MovieDetail.swift in Sources */ = {isa = PBXBuildFile; fileRef = EEEC236C2C40D3BF00E259F7 /* MovieDetail.swift */; };
 		EEEC236F2C40D56800E259F7 /* MovieCredits.swift in Sources */ = {isa = PBXBuildFile; fileRef = EEEC236E2C40D56800E259F7 /* MovieCredits.swift */; };
 		EEEC23722C40DCAD00E259F7 /* MovieExampleData.swift in Sources */ = {isa = PBXBuildFile; fileRef = EEEC23712C40DCAD00E259F7 /* MovieExampleData.swift */; };
@@ -80,6 +82,8 @@
 			buildActionMask = 2147483647;
 			files = (
 				EEEC237A2C47DADD00E259F7 /* UIImageColors in Frameworks */,
+				EE8EA3092C51DA0900C947FA /* FirebaseAuth in Frameworks */,
+				EE8EA30B2C51DA0900C947FA /* FirebaseFirestore in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -245,6 +249,8 @@
 			name = MoviesDB;
 			packageProductDependencies = (
 				EEEC23792C47DADD00E259F7 /* UIImageColors */,
+				EE8EA3082C51DA0900C947FA /* FirebaseAuth */,
+				EE8EA30A2C51DA0900C947FA /* FirebaseFirestore */,
 			);
 			productName = MoviesDB;
 			productReference = EE3C9ADD2C40B6D900D22063 /* MoviesDB.app */;
@@ -276,6 +282,7 @@
 			mainGroup = EE3C9AD42C40B6D900D22063;
 			packageReferences = (
 				EEEC23782C47DADD00E259F7 /* XCRemoteSwiftPackageReference "UIImageColors" */,
+				EE8EA3072C51DA0900C947FA /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */,
 			);
 			productRefGroup = EE3C9ADE2C40B6D900D22063 /* Products */;
 			projectDirPath = "";
@@ -538,6 +545,14 @@
 /* End XCConfigurationList section */
 
 /* Begin XCRemoteSwiftPackageReference section */
+		EE8EA3072C51DA0900C947FA /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/firebase/firebase-ios-sdk";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 10.29.0;
+			};
+		};
 		EEEC23782C47DADD00E259F7 /* XCRemoteSwiftPackageReference "UIImageColors" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/jathu/UIImageColors.git";
@@ -549,6 +564,16 @@
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
+		EE8EA3082C51DA0900C947FA /* FirebaseAuth */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = EE8EA3072C51DA0900C947FA /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;
+			productName = FirebaseAuth;
+		};
+		EE8EA30A2C51DA0900C947FA /* FirebaseFirestore */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = EE8EA3072C51DA0900C947FA /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;
+			productName = FirebaseFirestore;
+		};
 		EEEC23792C47DADD00E259F7 /* UIImageColors */ = {
 			isa = XCSwiftPackageProductDependency;
 			package = EEEC23782C47DADD00E259F7 /* XCRemoteSwiftPackageReference "UIImageColors" */;

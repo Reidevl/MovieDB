@@ -8,10 +8,15 @@
 import SwiftUI
 
 struct ContentView: View {
+    @AppStorage("uid") var userId: String = ""
+    
     var body: some View {
-//        HomeView()
-        AuthView()
-        
+        if userId == "" {
+            AuthView()
+        } else {
+            HomeView()
+                .transition(.slide)
+        }
     }
 }
 

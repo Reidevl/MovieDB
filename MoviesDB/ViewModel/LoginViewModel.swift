@@ -6,9 +6,19 @@
 //
 
 import Foundation
+import FirebaseAuth
 
 @Observable
 class LoginViewModel {
+    var userId: String {
+        get {
+            UserDefaults.standard.string(forKey: "uid") ?? ""
+        }
+        set {
+            UserDefaults.standard.set(newValue, forKey: "uid")
+        }
+    }
+
     var email: String = ""
     var password: String = ""
     
@@ -18,11 +28,29 @@ class LoginViewModel {
         return passwordRegex.evaluate(with: password)
     }
     
-    func login() {
-        
+    func login(email: String, passw: String) {
+        Auth.auth().signIn(withEmail: email, password: passw) { authResult, error in
+            if let error = error {
+                print(error.localizedDescription)
+                return
+            }
+            
+            if let authResult = authResult {
+                self.userId = authResult.user.uid
+            }
+        }
     }
     
-    func createAccount() {
-        
+    func createAccount(email: String, passw: String) {
+        Auth.auth().createUser(withEmail: email, password: passw) { authResult, error in
+            if let error = error {
+                print(error.localizedDescription)
+                return
+            }
+            
+            if let authResult = authResult {
+                self.userId = authResult.user.uid
+            }
+        }
     }
 }

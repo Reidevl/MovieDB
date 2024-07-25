@@ -14,13 +14,11 @@ struct AuthContentField: View {
     
     var title: String
     var secButtonText: String
-    var mainButtonAction: () -> Void
+    var mainButtonAction: (String, String) -> Void
     var mainButtonText: String
     var mainButtonColor: Color
     
     var body: some View {
-        
-        
         VStack {
             HStack {
                 Text(title)
@@ -56,7 +54,9 @@ struct AuthContentField: View {
         Spacer()
         
         Button {
-            mainButtonAction()
+            withAnimation {
+                mainButtonAction(loginVM.email, loginVM.password)
+            }
         } label: {
             Text(mainButtonText)
                 .foregroundStyle(.white)
@@ -80,7 +80,7 @@ struct AuthContentField: View {
     
     return AuthContentField(currentShowingView: $currentShowingView, loginVM: $loginVM, switchViewAction: {
         currentShowingView = "signup"
-    }, title: "Sign Up!", secButtonText: "Already have an account?", mainButtonAction: {
+    }, title: "Sign Up!", secButtonText: "Already have an account?", mainButtonAction: {_,_ in 
         print("test")
     }, mainButtonText: "Create New Account", mainButtonColor: Color.color2)
 }
