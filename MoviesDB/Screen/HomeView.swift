@@ -9,6 +9,7 @@ import SwiftUI
 
 struct HomeView: View {
     @State private var hvm: HomeViewModel = .init()
+    @State private var lvm: LoginViewModel = .init()
     
     var body: some View {
         NavigationStack {
@@ -79,6 +80,27 @@ struct HomeView: View {
                     .task {
                         await hvm.fetchData()
                     }
+                }
+                
+                VStack {
+                    Spacer()
+                    
+                    Button{
+                        withAnimation {
+                            lvm.logout()
+                        }
+                    } label: {
+                        Image(systemName: "power")
+                            .resizable()
+                            .scaledToFit()
+                            .frame(width: 24, height: 24)
+                            .padding()
+                            .background(Circle().foregroundColor(.color2))
+                            .foregroundColor(.white)
+                            .shadow(radius: 5)
+                    }
+                    .frame(maxWidth: .infinity, alignment: .trailing)
+                    .padding(20)
                 }
             }
             .onChange(of: hvm.newPrimaryColor) {

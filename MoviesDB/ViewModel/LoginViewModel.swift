@@ -53,4 +53,13 @@ class LoginViewModel {
             }
         }
     }
+    
+    func logout() {
+        do {
+            try Auth.auth().signOut()
+            self.userId = ""
+        } catch let signOutError as NSError {
+          print("Error signing out: %@", signOutError)
+        }
+    }
 }
