@@ -8,8 +8,13 @@
 import Foundation
 
 class ApiViewModel {
-    let apiKey: String = "3b86261ed6962c51aa694ab33f016c62"
-    let apiUrl: String = "https://api.themoviedb.org/3/movie"
+    private let apiKey: String
+    private let apiUrl: String
+    
+    init() {
+        self.apiKey = Config.apiKey
+        self.apiUrl = Config.apiUrl
+    }
     
 //    MARK: - Basic API's struct
     private func constructURL(endpoint: String) -> URL? {
@@ -22,7 +27,7 @@ class ApiViewModel {
         return urlComponents?.url
     }
     
-    private func perfomRequest<T: Codable>(url: URL, responseType: T.Type) async throws -> T {
+    private func perfomRequest<T: Decodable>(url: URL, responseType: T.Type) async throws -> T {
         let (data, response) = try await URLSession.shared.data(from: url)
         
         guard let response = response as? HTTPURLResponse, response.statusCode == 200 else {
@@ -31,6 +36,7 @@ class ApiViewModel {
         
         do {
             let decoder = JSONDecoder()
+//            decoder.keyDecodingStrategy = .convertFromSnakeCase
             let decodeResponse = try decoder.decode(responseType, from: data)
             return decodeResponse
             
